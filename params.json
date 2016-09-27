@@ -1,0 +1,6 @@
+{
+  "name": "Traffic-simulator",
+  "tagline": "Traffic Simulator Interactive by ActionScript",
+  "body": "## Traffic Simulator Interactive by ActionScript\r\n### Requirements\r\nApache Flex 4.15.0  :Please download from http://flex.apache.org/download-source.html  \r\nPlease set a path to excuse programs.  \r\nAlready \"Main2.swf\" is created. So let's run on your browser. FLASH Player is necessary.\r\n\r\n### Compile\r\nMain program is \"Main2.as\"  \r\nPlease compile like command :  \r\n\r\n```\r\n> mxmlc -default-size 800 800 -default-background-color=#ffffff Main2.as\r\n```\r\n\r\n### ScreenShot \r\n![ScreenShot](https://github.com/jirotubuyaki/Traffic-Simulator/blob/master/screenshot.png)  \r\n\r\n\r\n\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
