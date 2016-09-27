@@ -12,5 +12,8 @@ Please compile like command :
 > mxmlc -default-size 800 800 -default-background-color=#ffffff Main2.as
 ```
 
+### ScreenShot 
+![ScreenShot](https://github.com/jirotubuyaki/Traffic-Simulator/blob/master/screenshot.png)  
+
 
 
