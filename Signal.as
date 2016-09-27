@@ -4,7 +4,6 @@ package {
 	import flash.utils.*;
 	
 	public class Signal extends Sprite{
-	
 		[Embed(source='./images/SignalRed.swf')]
 		public var signal_red_anime:Class;
 		
@@ -23,30 +22,23 @@ package {
 		public var angle_straight:Number;
 		public var angle_right:Number;
 		public var angle_left:Number;
-		
 		public var movie_blue:MovieClip;
 		public var movie_red:MovieClip;
 		public var movie_yellow:MovieClip;
-
 		public var movie_straight_blue:MovieClip;
 		public var movie_straight_red:MovieClip;
 		public var movie_straight_yellow:MovieClip;
-
 		public var movie_right_blue:MovieClip;
 		public var movie_right_red:MovieClip;
 		public var movie_right_yellow:MovieClip;
-
 		public var movie_left_blue:MovieClip;
 		public var movie_left_red:MovieClip;
 		public var movie_left_yellow:MovieClip;
-
 		public var walk_load:MovieClip;
 		public var walk_load_straight:MovieClip;
 		public var walk_load_right:MovieClip;
 		public var walk_load_left:MovieClip;
-
 		public var street:Street;
-		
 		public var main:Main2;
 		public var timer:Timer;
 		public var j:Number;
@@ -58,7 +50,6 @@ package {
 			timer.addEventListener(TimerEvent.TIMER,onTick);
 			main = main_input;
 	 		
-
 			walk_load = new walk_anime();
 			walk_load_straight = new walk_anime();
 			walk_load_right = new walk_anime();
@@ -154,8 +145,6 @@ package {
 			if(street.left_back != main.street_0){
 				main.AddImage(walk_load_left);
 			}
-			
-			
 			distance_1 = Math.sqrt((street.start_x - street.end_x) * (street.start_x - street.end_x) + (street.start_y - street.end_y) * (street.start_y - street.end_y));
 			distance_2 = 1;
 			angle = ((street.end_x - street.start_x) *(1) + (street.end_y - street.start_y) *(0 - 0)) /(distance_1 * distance_2);
@@ -299,7 +288,6 @@ package {
 				state = 2;
 			}
 			else if(state == 2){
-			
 				street.signal_state = "yellow";
 				street.straight_back.signal_state = "yellow";
 				street.left_back.signal_state = "red";
@@ -312,10 +300,8 @@ package {
 					movie_straight_red.visible = false;
 					movie_straight_yellow.visible = true;
 					movie_straight_blue.visible = false;
-				}
-				
+				}	
 				if(street.right_back != main.street_0){
-
 					movie_right_red.visible = true;
 					movie_right_yellow.visible = false;
 					movie_right_blue.visible = false;
@@ -324,12 +310,10 @@ package {
 					movie_left_red.visible = true;
 					movie_left_yellow.visible = false;
 					movie_left_blue.visible = false;
-				}
-				
+				}	
 				state =3;
 			}
 			else if(state == 3){
-			
 				street.signal_state = "red";
 				street.straight_back.signal_state = "red";
 				street.left_back.signal_state = "blue";
@@ -357,7 +341,6 @@ package {
 				state = 4;
 			}
 			else{
-			
 				street.signal_state = "red";
 				street.straight_back.signal_state = "red";
 				street.left_back.signal_state = "yellow";
@@ -383,8 +366,7 @@ package {
 					movie_left_blue.visible = false;
 				}
 				
-				state = 1;
-				
+				state = 1;	
 			}
 		}
 	}

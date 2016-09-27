@@ -13,16 +13,13 @@ package {
 		[Embed(source='./images/CarAdd.swf')]
 		public var add_anime:Class;
 		public var movie:MovieClip;
-  		
-  		public var start_x:Number;
-  		public var start_y:Number;
-  		public var end_x:Number;
-  		public var end_y:Number;
-  		  		
+		public var start_x:Number;
+		public var start_y:Number;
+		public var end_x:Number;
+		public var end_y:Number;
 		public var main:Main2;
 		public var line:Sprite
 		public var line_up:Sprite
-
 		public var button:Button1;
 		public var street:Street;
 		public var state:String = "off";
@@ -41,16 +38,12 @@ package {
 		private function mouseDownHandler(evt:MouseEvent):void{
 		}
 		private function mouseUpHandler(evt:MouseEvent):void{
-
-
 		}
 		private function mouseMoveHandler(evt:MouseEvent):void{
 		}
 		private function mouseOverHandler(evt:MouseEvent):void{
-
 		}
 		private function mouseOutHandler(evt:MouseEvent):void{
-
 		}
 		public function Line(x0:Number,y0:Number,x1:Number,y1:Number):Sprite{
 			start_x = x0;
@@ -61,9 +54,7 @@ package {
 			line.graphics.lineStyle(20,0xe7e7e7);
 			line.graphics.moveTo(x0,y0);
 			line.graphics.lineTo(x1,y1);
-			return line;
-			
+			return line;	
 		}
-
 	}
 }
