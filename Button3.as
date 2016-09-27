@@ -260,7 +260,6 @@ package {
 			x_in = x_in+ scale_center_x;
 			y_in = y_in+ scale_center_y;
 		
-
 			movie.scaleX = view / f;
 			movie.scaleY = view / f;
 

@@ -244,11 +244,9 @@ package {
 		public function Scale():void{
 			if(scale_state == "+"){
 				scale = (-100/203 * t * t + 4900/203)*1.001;
-
 			}
 			else if(scale_state == "-"){
 				scale = (100/203 * t * t - 4900/203)*1.001;
-
 			}
 			f = f - scale;
 

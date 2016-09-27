@@ -223,8 +223,7 @@ package {
 				if(f <=150){
 					f =f -scale;
 				}
-			}
-					
+			}		
 			x_in = x_in -scale_center_x;
 			y_in = y_in -scale_center_y;
 			movie.x = x_in * view/f + scale_center_x * view/f_before;

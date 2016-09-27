@@ -115,7 +115,6 @@ package {
 			movie.addEventListener(Event.ENTER_FRAME,act);
 			button = new Button6(current_street.start_x+ 50,current_street.start_y-10,main,street);
 			timer.start();
-			
 		}
 		public function act(e:Event):void{
 			switch(next_turn){
@@ -215,9 +214,7 @@ package {
 							state = "run";
 						break;
 					}
-
 				break;
-				
 				case "Right":
 					switch(state){
 						case "run":
@@ -269,7 +266,6 @@ package {
 							else{
 								state = "end";
 							}
-						
 						break;
 						case "stop":
 							if(current_street.signal_state == "red"){
@@ -315,7 +311,6 @@ package {
 						break;
 					}
 				break;
-				
 				case "Left":
 					switch(state){
 						case "run":
@@ -367,7 +362,6 @@ package {
 							else{
 								state = "end";
 							}
-						
 						break;
 						case "stop":
 							if(current_street.signal_state == "red"){
@@ -378,7 +372,6 @@ package {
 							else{
 								state = "run";
 								timer_stop.stop();
-
 							}
 						break;
 						case "end":
@@ -414,7 +407,6 @@ package {
 							state = "run";
 						break;
 					}
-
 				break;
 			}
 		}
