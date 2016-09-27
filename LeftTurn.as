@@ -1,9 +1,9 @@
 package {
-    import flash.display.*;
+	import flash.display.*;
 	import flash.events.*;
 	import flash.utils.*;
 	
-    public class LeftTurn{
+	public class LeftTurn{
 		public var start_x:Number;
 		public var start_y:Number;
 		public var car:Car;
@@ -11,9 +11,9 @@ package {
 		public var i:int;
 		public var h:int;
 		
-        public function LeftTurn(car_input:Car):void{
-        	car = car_input;
-     	}
+		public function LeftTurn(car_input:Car):void{
+			car = car_input;
+		}
 		public function turn():void{
 			if(car.angle_before >= 0){
 				if((car.angle_next >=0)&&(car.angle_next<= car.angle_before)){
@@ -47,5 +47,5 @@ package {
 			car.movie.y = car.movie.y + (car.cross_end_point_y -car.start_point_y)/15;
 			car.i++;
 		}
-    }
+	}
 }
