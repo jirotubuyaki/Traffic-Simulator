@@ -1,4 +1,4 @@
-## Traffic Simulator Intaractive by ActionScript
+## Traffic Simulator Interactive by ActionScript
 ### Requirements
 Apache Flex 4.15.0  :Please download from http://flex.apache.org/download-source.html  
 Please set a path to excuse programs.  
