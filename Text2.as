@@ -9,9 +9,7 @@ package {
 	import flash.text.*;
 	import flash.net.*;
 
-
 	public class Text2 extends Sprite { 
-
 		[Embed(source='./fonts/visitor2.ttf', fontName='visitor', mimeType='application/x-font',embedAsCFF='false')] 	
 		//[Embed(source='visitor2.ttf', fontName='visitor', mimeType='application/x-font')] 
 		private var embedFont:Class;
@@ -118,14 +116,12 @@ package {
 			url_navi.url = url_input;
 			if(word == "BLOG"){
 				navigateToURL(url_navi,"_blank");
-
 			}
 			else{
 				navigateToURL(url_navi,"center");
 			}
 		}
 		private function mouseUpHandler(evt:MouseEvent):void{
-
 		}
 		private function mouseOverHandler(evt:MouseEvent):void{
 			text_color = 0xffffff;
@@ -133,7 +129,6 @@ package {
 				i_state[i] = "go";
 			}
 			j = 0;
-
 		}
 		private function mouseOutHandler(evt:MouseEvent):void{
 
@@ -142,8 +137,6 @@ package {
 				i_state[i] = "go";
 			}
 			j = 0;
-
-
 		}
 		public function act(e:Event):void{
 			if(j < 26){

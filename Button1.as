@@ -18,68 +18,48 @@ package {
 		public var main:Main2;
 		public var movie:MovieClip;
 		public var movie_up:MovieClip;
-		
 		public var start_x:Number;
 		public var start_y:Number;
-
 		public var angle:int;
 		public var angle_move:Number;
-		
 		public var f:Number;
 		public var f_before:Number
 		public var scale:Number;
 		public var view:Number;
-		
 		public var V_x:Number = 1;
 		public var V_y:Number = 1;
-		
 		public var x_in:Number;
 		public var y_in:Number;
-		
 		public var x_unit:Number;
 		public var y_unit:Number;
-		
 		public var current_point_x:Number;
 		public var current_point_y:Number;
 		public var i:int=0;
 		public var j:int=0;
 		public var state:String ="start";
-		
 		public var scale_state:String = "+";
 		public var angle_state:String = "+";
 		public var move_state:String = "+";
-
 		public var t:int=1;
 		public var s:int=1;
-
 		public var t_memory:int = 7;
 		public var t_state:int = 1;
-		
 		public var move_x:Number=0;
 		public var move_y:Number=0;
-
 		public var before_x_in:Number=0;
 		public var before_y_in:Number=0;
-		
 		public var move_center_x:Number=0;
 		public var move_center_y:Number=0;
-		
 		public var move_point_x:Number=0;
 		public var move_point_y:Number=0;
-		
 		public var center_x:Number;
 		public var center_y:Number;
-		
 		public var scale_center_x:Number;
 		public var scale_center_y:Number;
-		
 		public var rotation_center_x:Number;
 		public var rotation_center_y:Number;
-		
 		public var distance:Number;
-		
 		public var f_font:Number=1;
-		
 		public var text_obj:Text2;
 		public var word:String;
 		public var street:Street;

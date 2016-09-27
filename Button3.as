@@ -21,71 +21,50 @@ package {
 		public var movie:MovieClip;
 		public var movie_up:MovieClip;
 		public var movie_play:MovieClip;
-		
 		public var count:int=0;
-		
 		public var start_x:Number;
 		public var start_y:Number;
-
 		public var angle:int;
 		public var angle_move:Number;
-		
 		public var f:Number;
 		public var f_before:Number
 		public var scale:Number;
 		public var view:Number;
-		
 		public var V_x:Number = 1;
 		public var V_y:Number = 1;
-		
 		public var x_in:Number;
 		public var y_in:Number;
-		
 		public var x_unit:Number;
 		public var y_unit:Number;
-		
 		public var current_point_x:Number;
 		public var current_point_y:Number;
 		public var i:int=0;
 		public var j:int=0;
 		public var o:int=0;
 		public var state:String ="start";
-		
 		public var scale_state:String = "+";
 		public var angle_state:String = "+";
 		public var move_state:String = "+";
-
 		public var t:int=1;
 		public var s:int=1;
-
 		public var t_memory:int = 7;
 		public var t_state:int = 1;
-		
 		public var move_x:Number=0;
 		public var move_y:Number=0;
-
 		public var before_x_in:Number=0;
 		public var before_y_in:Number=0;
-		
 		public var move_center_x:Number=0;
 		public var move_center_y:Number=0;
-		
 		public var move_point_x:Number=0;
 		public var move_point_y:Number=0;
-		
 		public var center_x:Number;
 		public var center_y:Number;
-		
 		public var scale_center_x:Number;
 		public var scale_center_y:Number;
-		
 		public var rotation_center_x:Number;
 		public var rotation_center_y:Number;
-		
 		public var distance:Number;
-		
 		public var f_font:Number=1;
-		
 		public var text_obj:Text2;
 		public var word:String;
 		public var street:Street;
@@ -108,8 +87,6 @@ package {
 			movie.x = start_x;
 			movie.y = start_y;
 
-
-			
 			movie.scaleX = view/f;
 			movie.scaleY = view/f;
 			
@@ -135,7 +112,6 @@ package {
 					
 			x_unit = x_in/distance;
 			y_unit = y_in/distance;
-			
 			
 			word = "PLAY";
 			text_obj = new Text2(word,main,this);
@@ -250,7 +226,6 @@ package {
 			text_obj.ChangePosition(view/f*move_x,view/f*move_y);
 			text_obj.movie.x = text_obj.movie.x + view/f*move_x;
 			text_obj.movie.y = text_obj.movie.y + view/f*move_y;
-
 		}
 		public function Rotation():void{
 			if(angle_state == "+"){
@@ -264,8 +239,6 @@ package {
 			
 			movie_up.rotation = movie_up.rotation + angle;
 			movie_up.rotation = movie_up.rotation + angle;
-			
-
 		}
 		public function Scale():void{
 			if(scale_state == "+"){
@@ -293,11 +266,8 @@ package {
 
 			movie_up.scaleX = view / f;
 			movie_up.scaleY = view / f;
-			
-			
 		}
 		public function mouseDownHandler(evt:MouseEvent):void{
-
 		}
 		public function mouseUpHandler(evt:MouseEvent):void{
 			text_obj.ChangeWord("START");
@@ -308,13 +278,10 @@ package {
 			for(i=0;i<main.car_obj.length;i=0){
 				main.removeChild(main.car_obj[0].movie);
 				main.car_obj.shift();
-
 			}
 			for(i=0;i<main.signal_street.length;i=0){
 				main.signal_street.shift();
 				main.signal_street_back.shift();
-
-
 			}
 			for(i=0;i<main.signal_x.length;i=0){
 				main.signal_x.shift();
@@ -323,7 +290,6 @@ package {
 			for(i=0;i<main.line_obj.length;i=0){
 				main.removeChild(main.line_obj[0]);
 				main.line_obj.shift();
-
 			}
 			for(i=0;i<main.button_obj.length;i=0){
 				main.removeChild(main.button_obj[0].movie_up);
@@ -332,7 +298,6 @@ package {
 				main.removeChild(main.button_obj[0].text_obj.movie);
 
 				main.button_obj.shift();
-
 			}
 			for(i=0;i<main.button2_obj.length;i=0){
 				main.removeChild(main.button2_obj[0].button.movie_up);
@@ -342,7 +307,6 @@ package {
 				main.removeChild(main.button2_obj[0].button.text_obj.movie);
 
 				main.button2_obj.shift();
-
 			}
 			for(i=0;i<main.point_start_x.length;i=0){
 				main.point_start_x.shift();
@@ -394,7 +358,6 @@ package {
 			main.count = 0;
 			main.state = "normal";
 			main.first_click = "off";
-
 		}
 		public function mouseOverHandler(evt:MouseEvent):void{
 			if(state != "over"){
@@ -405,11 +368,9 @@ package {
 				
 				state = "over";
 				t_memory = 7-t_state;
-				t = 1;
-				
+				t = 1;		
 			}
 		}
-
 		public function mouseOutHandler(evt:MouseEvent):void{
 			if(state != "out"){
 				current_point_x = x_in;

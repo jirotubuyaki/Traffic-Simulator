@@ -21,74 +21,54 @@ package {
 		public var movie:MovieClip;
 		public var movie_up:MovieClip;
 		public var movie_play:MovieClip;
-		
 		public var count:int=0;
-		
 		public var start_x:Number;
 		public var start_y:Number;
-
 		public var angle:int;
 		public var angle_move:Number;
-		
 		public var f:Number;
 		public var f_before:Number
 		public var scale:Number;
 		public var view:Number;
-		
 		public var V_x:Number = 1;
 		public var V_y:Number = 1;
-		
 		public var x_in:Number;
 		public var y_in:Number;
-		
 		public var x_unit:Number;
 		public var y_unit:Number;
-		
 		public var current_point_x:Number;
 		public var current_point_y:Number;
 		public var i:int=0;
 		public var j:int=0;
 		public var o:int=0;
 		public var state:String ="start";
-		
 		public var scale_state:String = "+";
 		public var angle_state:String = "+";
 		public var move_state:String = "+";
-
 		public var t:int=1;
 		public var s:int=1;
-
 		public var t_memory:int = 7;
 		public var t_state:int = 1;
-		
 		public var move_x:Number=0;
 		public var move_y:Number=0;
-
 		public var before_x_in:Number=0;
 		public var before_y_in:Number=0;
-		
 		public var move_center_x:Number=0;
 		public var move_center_y:Number=0;
-		
 		public var move_point_x:Number=0;
 		public var move_point_y:Number=0;
-		
 		public var center_x:Number;
 		public var center_y:Number;
-		
 		public var scale_center_x:Number;
 		public var scale_center_y:Number;
-		
 		public var rotation_center_x:Number;
 		public var rotation_center_y:Number;
-		
 		public var distance:Number;
-		
 		public var f_font:Number=1;
-		
 		public var text_obj:Text2;
 		public var word:String;
 		public var street:Street;
+
 		public function Button4(start_x:Number,start_y:Number,main_input:Main2){		
 		  	main = main_input;
 		  	
@@ -134,7 +114,6 @@ package {
 			x_unit = x_in/distance;
 			y_unit = y_in/distance;
 			
-			
 			word = "NEXT";
 			text_obj = new Text2(word,main,this);
 			text_obj.url_input = "";
@@ -159,8 +138,7 @@ package {
 						movie_up.addEventListener(MouseEvent.MOUSE_DOWN,mouseDownHandler);
 						movie_up.addEventListener(MouseEvent.MOUSE_UP,mouseUpHandler);
 						movie_up.addEventListener(MouseEvent.MOUSE_OVER,mouseOverHandler);
-						movie_up.addEventListener(MouseEvent.MOUSE_OUT,mouseOutHandler);
-						
+						movie_up.addEventListener(MouseEvent.MOUSE_OUT,mouseOutHandler);	
 					}
 					scale_state = "+";
 					angle_state = "-";
@@ -261,17 +239,13 @@ package {
 			
 			movie_up.rotation = movie_up.rotation + angle;
 			movie_up.rotation = movie_up.rotation + angle;
-			
-
 		}
 		public function Scale():void{
 			if(scale_state == "+"){
 				scale = (-100/203 * t * t + 4900/203)*1.001;
-
 			}
 			else if(scale_state == "-"){
 				scale = (100/203 * t * t - 4900/203)*1.001;
-
 			}
 			f = f - scale;
 
@@ -284,17 +258,13 @@ package {
 			x_in = x_in+ scale_center_x;
 			y_in = y_in+ scale_center_y;
 		
-
 			movie.scaleX = view / f;
 			movie.scaleY = view / f;
 
 			movie_up.scaleX = view / f;
 			movie_up.scaleY = view / f;
-			
-			
 		}
 		public function mouseDownHandler(evt:MouseEvent):void{
-
 		}
 		public function mouseUpHandler(evt:MouseEvent):void{
 			text_obj.ChangeWord("START");
@@ -305,7 +275,6 @@ package {
 			for(i=0;i<main.car_obj.length;i=0){
 				main.removeChild(main.car_obj[0].movie);
 				main.car_obj.shift();
-
 			}
 			for(i=0;i<main.button_obj.length;i=0){
 				main.removeChild(main.button_obj[0].movie_up);
@@ -314,7 +283,6 @@ package {
 				main.removeChild(main.button_obj[0].text_obj.movie);
 
 				main.button_obj.shift();
-
 			}
 			for(i=0;i<main.button2_obj.length;i=0){
 				main.removeChild(main.button2_obj[0].button.movie_up);
@@ -324,7 +292,6 @@ package {
 				main.removeChild(main.button2_obj[0].button.text_obj.movie);
 
 				main.button2_obj.shift();
-
 			}
 			for(i=0;i<main.signal_street.length;i=0){
 				main.signal_street.shift();
@@ -356,7 +323,6 @@ package {
 			for(i=0;i<main.line_obj.length;i=0){
 				main.removeChild(main.line_obj[0]);
 				main.line_obj.shift();
-
 			}
 			for(o=0;o<main.cross_street.length;o=0){
 				main.cross_street.shift();
@@ -386,7 +352,6 @@ package {
 			for(o=0;o<main.button_street.length;o=0){
 				main.button_street.shift();
 			}
-
 		}
 		public function mouseOverHandler(evt:MouseEvent):void{
 			if(state != "over"){
@@ -397,11 +362,9 @@ package {
 				
 				state = "over";
 				t_memory = 7-t_state;
-				t = 1;
-				
+				t = 1;	
 			}
 		}
-
 		public function mouseOutHandler(evt:MouseEvent):void{
 			if(state != "out"){
 				current_point_x = x_in;

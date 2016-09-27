@@ -4,27 +4,20 @@ package {
 	import flash.utils.*;
 	
 	public class Street extends Sprite{
-	
 		public var start_x:Number;
 		public var start_y:Number;
-		
 		public var end_x:Number;
 		public var end_y:Number;
-		
 		public var straight_next:Street;
 		public var right_next:Street;
 		public var left_next:Street;
-
 		public var straight_back:Street;
 		public var right_back:Street;
 		public var left_back:Street;
-		
 		public var run_car:Array = new Array();
 		public var i:int;
-		
 		public var signal:Signal;
 		public var main:Main2;
-		
 		public var signal_state:String;
 		
 		public function Street(){
@@ -34,7 +27,6 @@ package {
 			start_y = center_1_y;
 			end_x = center_2_x;
 			end_y = center_2_y;
-		
 		}
 		public function NextRoad(straight_1:Street,right_1:Street,left_1:Street):void{
 			straight_next = straight_1;

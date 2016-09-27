@@ -4,7 +4,6 @@ package {
 	import flash.utils.*;
 	
 	public class Car extends Sprite{
-	
 		[Embed(source='./images/CarGreen.swf')]
 		public var car_green_anime:Class;
 		
@@ -21,50 +20,38 @@ package {
 		public var car_red_anime:Class;
 		
 		public var movie:MovieClip;
-
 		public var a:Number;
 		public var v:Number;
 		public var next_turn:String;
-
 		public var cross_end_point_x:Number;
-		public var cross_end_point_y:Number;
-				
+		public var cross_end_point_y:Number;		
 		public var obj_state:Object;
 		public var obj_left:Object;
 		public var obj_right:Object;
 		public var obj_straight:Object;
-		
 		public var street:Street;
-		
 		public var main:Main2;
-	  	
 		public var obj_car:Array = new Array();
 		public var i:int = 0;
 		public var j:Number;
 		public var k:int;
 		public var current_street:Street;
-		
 		public var front_car_distance:Number;
 		public var distance:Number;
 		public var distance_2:Number;
-		
 		public var angle:Number;
 		public var angle_before:Number;
 		public var angle_next:Number;
 		public var flag:String ="off";
 		public var go_flag:String = "off";
 		public var next_street:Street;
-		
 		public var car_distance:Number;
 		public var start_point_x:Number;
 		public var start_point_y:Number;
-		
 		public var front_car:Car;
-
 		public var next_street_left:Street;
 		public var next_street_right:Street;
 		public var next_street_straight:Street;
-		
 		public var state:String = "run";
 		public var timer:Timer;
 		public var time:int = 0;
@@ -92,24 +79,20 @@ package {
 			obj_left = new LeftTurn(this);
 			obj_right = new RightTurn(this);
 			obj_straight = new StraightTurn(this);
-			
 			next_street = main.street_0;
 			while(next_street == main.street_0){
 	   	 		j = Math.random() * 3;
-
 				if(j <= 1){
 					next_turn = "Left";
 					obj_state = obj_left;
 					next_street = current_street.left_next;
 					next_street_left = next_street;
-
 	   	 		}
 	   			else if(j <= 2){
 	   				next_turn = "Right";
 	   				obj_state = obj_right;
 	   				next_street = current_street.right_next;
 	   				next_street_right = next_street;
-
 	   			}
 	   			else{
 	   				next_turn = "Straight";
@@ -119,8 +102,6 @@ package {
 				}
 			}
 			next_street = main.street_0;
-			
-			
 			j = Math.random()*5;
 			if(j <=1){movie = new car_green_anime();}
 			else if(j<=2 ){movie = new car_blue_anime();}
@@ -137,7 +118,6 @@ package {
 			
 		}
 		public function act(e:Event):void{
-
 			switch(next_turn){
 				case "Straight":
 					switch(state){
@@ -190,8 +170,7 @@ package {
 							}
 							else{
 								state = "end";
-							}
-						
+							}		
 						break;
 						case "stop":
 							if(current_street.signal_state == "red"){
