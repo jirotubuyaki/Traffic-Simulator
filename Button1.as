@@ -1,17 +1,16 @@
 package {
-    import flash.display.*;
+	import flash.display.*;
 	import flash.events.*;
 	import flash.utils.*;
 	import flash.geom.*;
 	import flash.media.*;
-    import flash.media.Sound; 
-    import flash.media.SoundChannel;
+	import flash.media.Sound; 
+	import flash.media.SoundChannel;
 	import flash.text.*;
 	import flash.net.*;
 	
     public class Button1 extends Sprite{
-  		
-        [Embed(source='./images/button.swf')]
+  	[Embed(source='./images/button.swf')]
         public var button_anime:Class;
         
 		public var mouse:String ="stop";
