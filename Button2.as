@@ -10,7 +10,6 @@ package {
 	import flash.net.*;
 	
 	public class Button2 extends Sprite{
-  		
 		[Embed(source='./images/button2.swf')]
 		public var button_anime:Class;
 		
@@ -205,19 +204,13 @@ package {
 				if(move_x_sum<0){
 					move_x = 0;
 				}
-			
 			}
-			
-
-			
 			x_in = x_in+ move_x;
 			y_in = y_in+ move_y;
 			
 			text_obj.ChangePosition(view/f_before*move_x,view/f*move_y);
 			text_obj.movie.x = text_obj.movie.x + view/f_before*move_x;
 			text_obj.movie.y = text_obj.movie.y + view/f_before*move_y;
-
-
 		}
 		public function Rotation():void{
 			if(angle_state == "+"){
@@ -231,17 +224,13 @@ package {
 			
 			movie_up.rotation = movie_up.rotation + angle;
 			movie_up.rotation = movie_up.rotation + angle;
-			
-
 		}
 		public function Scale():void{
 			if(scale_state == "+"){
 				scale = (-100/203 * t * t + 4900/203)*1.001;
-
 			}
 			else if(scale_state == "-"){
 				scale = (100/203 * t * t - 4900/203)*1.001;
-
 			}
 			if(state == "start"){
 				f = f - scale;
@@ -249,7 +238,6 @@ package {
 			else if(scale_state == "+"){
 				if(f >=40){
 					f = f -scale;
-
 				}
 			}
 			else if(scale_state == "-"){
@@ -267,14 +255,11 @@ package {
 			x_in = x_in+ scale_center_x;
 			y_in = y_in+ scale_center_y;
 		
-
 			movie.scaleX = view / f;
 			movie.scaleY = view / f;
 
 			movie_up.scaleX = view / f;
 			movie_up.scaleY = view / f;
-			
-			
 		}
 		public function mouseUp():void{
 			text_obj.ChangeWord("GOOD");

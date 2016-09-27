@@ -9,15 +9,20 @@ package {
 	import flash.text.*;
 	import flash.net.*;
 	
-	public class Button1 extends Sprite{
-  		
-		[Embed(source='./images/button.swf')]
+	public class Button5 extends Sprite{
+		[Embed(source='button3.swf')]
 		public var button_anime:Class;
+		
+		[Embed(source='play_back.swf')]
+		public var play_anime:Class;
 		
 		public var mouse:String ="stop";
 		public var main:Main2;
 		public var movie:MovieClip;
 		public var movie_up:MovieClip;
+		public var movie_play:MovieClip;
+		
+		public var count:int=0;
 		
 		public var start_x:Number;
 		public var start_y:Number;
@@ -83,18 +88,13 @@ package {
 		public var text_obj:Text2;
 		public var word:String;
 		public var street:Street;
-		public var move_x_sum:Number=0;
-
-		public function Button1(start_x_in:Number,start_y_in:Number,main_input:Main2,street_input:Street){		
+		public function Button5(start_x:Number,start_y:Number,main_input:Main2){
 		  	main = main_input;
-		  	street = street_input;
 		  	
-		  	start_x = start_x_in;
-		  	start_y = start_y_in;
 			movie = new button_anime();
 			movie_up = new button_anime();
 			
-			main.addChild(movie);
+			main.addChildAt(movie,main.numChildren);
 			center_x = start_x;
 			center_y = start_y;
   			scale = 0.1;
@@ -106,6 +106,8 @@ package {
   			angle_move = 17;
 			movie.x = start_x;
 			movie.y = start_y;
+
+
 			
 			movie.scaleX = view/f;
 			movie.scaleY = view/f;
@@ -133,17 +135,37 @@ package {
 			x_unit = x_in/distance;
 			y_unit = y_in/distance;
 			
-			word = "CAR";
+			
+			word = "HOW";
 			text_obj = new Text2(word,main,this);
 			text_obj.url_input = "";
 			text_obj.text_width = 50;
 			text_obj.text_height = 50;
 			text_obj.text_color = 0xffffff;
-			text_obj.text_size = 16;
-			text_obj.text_x = start_x-13;
+			text_obj.text_size = 18;
+			text_obj.text_x = start_x-42;
 			text_obj.text_y = start_y-6;
 			
-			main.addChild(movie_up);
+			word = "TO";
+			text_obj = new Text2(word,main,this);
+			text_obj.url_input = "";
+			text_obj.text_width = 50;
+			text_obj.text_height = 50;
+			text_obj.text_color = 0xffffff;
+			text_obj.text_size = 18;
+			text_obj.text_x = start_x-14;
+			text_obj.text_y = start_y-6;
+			
+			word = "PLAY";
+			text_obj = new Text2(word,main,this);
+			text_obj.url_input = "";
+			text_obj.text_width = 50;
+			text_obj.text_height = 50;
+			text_obj.text_color = 0xffffff;
+			text_obj.text_size = 18;
+			text_obj.text_x = start_x+5;
+			text_obj.text_y = start_y-6;
+			main.addChildAt(movie_up,main.numChildren);
 			movie_up.alpha = 0;
 			
    			movie_up.addEventListener(Event.ENTER_FRAME,act);
@@ -159,53 +181,39 @@ package {
 						movie_up.addEventListener(MouseEvent.MOUSE_UP,mouseUpHandler);
 						movie_up.addEventListener(MouseEvent.MOUSE_OVER,mouseOverHandler);
 						movie_up.addEventListener(MouseEvent.MOUSE_OUT,mouseOutHandler);
+						
 					}
-					else{
-						scale_state = "+";
-						angle_state = "-";
+					scale_state = "+";
+					angle_state = "-";
 
-						Scale();
-						Rotation();
-						t = t+ 1;
-					}
+					Scale();
+					t = t+ 1;
 					break;
 				case "over":
 					if(t >=t_memory){
 						t_memory = 7;
-						f = 49.8;
 						state = "stop";
 					}
-					else{
-						scale_state = "+";
-						angle_state = "-";
-						move_state = "+";
-						text_obj.ChangeWord("CARADDSTREETGO");
-						Move();
-						Scale();
-						t = t+ 1;
-						t_state = t_state + 1;
-					}
+					scale_state = "+";
+					angle_state = "-";
+					move_state = "+";
+					text_obj.ChangeWord("GO");
+					t = t+ 1;
+					t_state = t_state + 1;
+					
 					break;
 				case "out":
 					if(t >=t_memory){
 						t_memory = 7;
-						f = 149.9;
-						x_in = start_x * f_before/view;
-						y_in = start_y * f_before/view;
 						state = "stop";
+					}
+					scale_state = "-";
+					angle_state = "+";
+					move_state = "-";
+					text_obj.ChangeWord("PLAY");
 
-					}
-					else{
-						scale_state = "-";
-						angle_state = "+";
-						move_state = "-";
-						text_obj.ChangeWord("CAR");
-	
-						Move();
-						Scale();
-						t = t+ 1;
-						t_state = t_state - 1;
-					}
+					t = t+ 1;
+					t_state = t_state - 1;
 					break;
 				case "down":
 					if(s < 3){
@@ -219,50 +227,47 @@ package {
 						Scale();
 					}
 					if(s ==4){
-						text_obj.ChangeWord("ADD");
+						text_obj.ChangeWord("OPEN");
 						state = "stop";
 						t = 1;
-						s = 1;
+					}
+					if(t == 2){
+						t = 1;
 					}
 					else{
-						if(t == 2){
-							t = 1;
-						}
-						else{
-							t = t + 1;
-							s = s + 1;
-						}
+						t = t + 1;
 					}
+					s = s + 1;
 					break;
 				case "stop":
 					break;
 			}
 		}
 		public function Move():void{
-			move_point_x = 8;
+			move_point_x = 40;
 			move_point_y = 0 ;
+			
 			if(move_state == "+"){
-				move_x = move_point_x;
-				move_x_sum = move_x_sum + move_x;
-				if(move_x_sum>=57){
-					move_x = 0;
-				}
-
+				move_x = (-100/203 * t * t + 4900/203) *move_point_x / 100;
+				move_y = (-100/203 * t * t + 4900/203) *move_point_y / 100;
 			}
 			else if(move_state == "-"){
-				move_x = -1 * move_point_x;
-				move_x_sum = move_x_sum + move_x;
-				if(move_x_sum<0){
-					move_x = 0;
-				}
-			
+				move_x = (100/203 * t * t - 4900/203) *move_point_x / 100;
+				move_y = (100/203 * t * t - 4900/203) *move_point_y / 100;
 			}
+			
+			movie.x = movie.x +view/f*move_x;
+			movie.y = movie.y +view/f*move_y;
+			
+			movie_up.x = movie_up.x +view/f*move_x;
+			movie_up.y = movie_up.y +view/f*move_y;
+				
 			x_in = x_in+ move_x;
 			y_in = y_in+ move_y;
 			
-			text_obj.ChangePosition(view/f_before*move_x,view/f*move_y);
-			text_obj.movie.x = text_obj.movie.x + view/f_before*move_x;
-			text_obj.movie.y = text_obj.movie.y + view/f_before*move_y;
+			text_obj.ChangePosition(view/f*move_x,view/f*move_y);
+			text_obj.movie.x = text_obj.movie.x + view/f*move_x;
+			text_obj.movie.y = text_obj.movie.y + view/f*move_y;
 
 		}
 		public function Rotation():void{
@@ -289,20 +294,8 @@ package {
 				scale = (100/203 * t * t - 4900/203)*1.001;
 
 			}
-			if(state == "start"){
-				f = f - scale;
-			}
-			else if(scale_state == "+"){
-				if(f >=40){
-					f = f -scale;
+			f = f - scale;
 
-				}
-			}
-			else if(scale_state == "-"){
-				if(f <=150){
-					f =f -scale;
-				}
-			}
 			x_in = x_in -scale_center_x;
 			y_in = y_in -scale_center_y;
 			movie.x = x_in * view/f + scale_center_x * view/f_before;
@@ -312,58 +305,49 @@ package {
 			x_in = x_in+ scale_center_x;
 			y_in = y_in+ scale_center_y;
 		
+
 			movie.scaleX = view / f;
 			movie.scaleY = view / f;
 
 			movie_up.scaleX = view / f;
 			movie_up.scaleY = view / f;
+			
+			
 		}
 		public function mouseDownHandler(evt:MouseEvent):void{
 
 		}
 		public function mouseUpHandler(evt:MouseEvent):void{
-			if((state == "stop")&&(main.state !="mouse_down")){
-				text_obj.ChangeWord("ADD");
-				t = 1;
-				s = 1;
-				state = "down";
-				main.state = "stop";
-				
-				AddCar();
-			}
+			text_obj.ChangeWord("PLAY");
+			t = 1;
+			s = 1;
+			state = "down";
+			main.howto = new HowTo(main.stage.stageHeight/2,main.stage.stageHeight/2,main);
+
 		}
 		public function mouseOverHandler(evt:MouseEvent):void{
-			if((state != "over")&&(main.state !="mouse_down")){	
-				t_memory = 7-t_state;
-				t = 1;	
+			if(state != "over"){
+				current_point_x = x_in;
+				current_point_y = y_in;
+				before_x_in = x_in;
+				before_y_in = y_in;
+				
 				state = "over";
-				main.state = "stop";
+				t_memory = 7-t_state;
+				t = 1;
+				
 			}
 		}
 
 		public function mouseOutHandler(evt:MouseEvent):void{
-			if((state != "out")&&(main.state !="mouse_down")){
+			if(state != "out"){
+				current_point_x = x_in;
+				current_point_y = y_in;
 				t_memory =  t_state-1;
+
 				state = "out";
 				t = 1;
-				main.state = "normal";
 			}
-		}
-		public function AddCar():void{
-				main.car_distance = Math.sqrt((street.end_x - street.start_x)*(street.end_x - street.start_x)+(street.end_y - street.start_y)*(street.end_y - street.start_y));
-				main.car_start_x = street.end_y -street.start_y;
-				main.car_start_y = street.end_x - street.start_x;
-				
-				main.car_angle = (main.car_start_x * 1 + main.car_start_y * 0) / main.car_distance * 1;
-				main.car_start_x = 7 * (street.end_y - street.start_y)/ main.car_distance + street.start_x;
-				main.car_start_y = -7 * (street.end_x -street.start_x)/ main.car_distance + street.start_y;
-				main.car = new Car(main.car_start_x,main.car_start_y,main,street);
-				main.car.movie.rotation = Math.atan2(main.car_start_y,main.car_start_x)* 180/Math.PI;
-				
-				street.Add(main.car);
-
-				main.addChildAt(main.car.movie,main.line_obj.length);
-				main.car_obj.push(main.car);
 		}
 	}
 }
