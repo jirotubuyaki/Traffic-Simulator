@@ -12,10 +12,13 @@ Please compile like command :
 > mxmlc -default-size 800 800 -default-background-color=#ffffff Main2.as
 ```
 
+### Please look 
+[Traffic-Simulator DEMO](http://okaal.html.xdomain.jp/logs/generative-art/flash/traffic_in.html)
+
 ### ScreenShot 
 ![ScreenShot](https://github.com/jirotubuyaki/Traffic-Simulator/blob/master/screenshot.png)  
 
-[DEMO](http://okaal.html.xdomain.jp/logs/generative-art/flash/traffic_in.html)
+
 
 
 
