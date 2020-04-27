@@ -13,7 +13,7 @@ Please compile like command :
 ```
 
 ### Please look 
-[Traffic-Simulator DEMO](http://okaal.html.xdomain.jp/logs/generative-art/flash/traffic_in.html)
+[Traffic-Simulator DEMO](https://jirotubuyaki.github.io/flash/traffic_in.html)
 
 ### ScreenShot 
 ![ScreenShot](https://github.com/jirotubuyaki/Traffic-Simulator/blob/master/screenshot.png)  
