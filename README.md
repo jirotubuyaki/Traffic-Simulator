@@ -1,19 +1,7 @@
-## Traffic Simulator Interactive by ActionScript
-### Requirements
-Apache Flex 4.15.0  :Please download from http://flex.apache.org/download-source.html  
-Please set a path to excuse programs.  
-Already "Main2.swf" is created. So let's run on your browser. FLASH Player is necessary.
+## Traffic Simulator Interactive Animation by ActionScript3.0
 
-### Compile
-Main program is "Main2.as"  
-Please compile like command :  
-
-```
-> mxmlc -default-size 800 800 -default-background-color=#ffffff Main2.as
-```
-
-### Please look 
-[Traffic-Simulator DEMO](https://jirotubuyaki.github.io/flash/traffic_in.html)
+### Adobe Flash Player End of Life
+Since Adobe no longer supports Flash Player after December 31, 2020 and blocked Flash content from running in Flash Player beginning January 12, 2021, Adobe strongly recommends all users immediately uninstall Flash Player to help protect their systems.  
 
 ### ScreenShot 
 ![ScreenShot](https://github.com/jirotubuyaki/Traffic-Simulator/blob/master/screenshot.png)  
